@@ -21,7 +21,6 @@ public class Exercise3 {
         }
 
         avg = avg / denom;
-
         System.out.println("Average: " + avg);
 
         scanner.close();
