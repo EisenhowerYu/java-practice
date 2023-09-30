@@ -1,4 +1,4 @@
-// Methods
+// Basic summation calculator
 /*
  * Usage: Enter first, second, third coefficient
  *        Enter start and end number for summation

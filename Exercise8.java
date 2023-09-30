@@ -25,28 +25,26 @@ public class Exercise8 {
         while (true) {
             String ans = input.nextLine(); // reads input
 
-            if (ans.equals("x")) {
-                break;
+            if (ans.equals("x")) {break;}
+            
+            // check for fizzbuzz
+            if (checksum % 3 == 0 && checksum % 5 == 0) {
+                correct = "fizzbuzz";
+            } else if (checksum % 3 == 0) {
+                correct = "fizz";
+            } else if (checksum % 5 == 0) {
+                correct = "buzz";
             } else {
-                // check for fizzbuzz
-                if (checksum % 3 == 0 && checksum % 5 == 0) {
-                    correct = "fizzbuzz";
-                } else if (checksum % 3 == 0) {
-                    correct = "fizz";
-                } else if (checksum % 5 == 0) {
-                    correct = "buzz";
-                } else {
-                    correct = String.valueOf(checksum);
-                }
-
-                if (!ans.equals(correct)) {
-                    checksum = 0;
-                    System.out.println("Wrong, the answer is " + correct);
-                    System.out.println("Press 1 to restart.");
-                }
-
-                checksum++;
+                correct = String.valueOf(checksum);
             }
+
+            if (!ans.equals(correct)) {
+                checksum = 0;
+                System.out.println("Wrong, the answer is " + correct);
+                System.out.println("Press 1 to restart.");
+            }
+
+            checksum++;
         }
 
         input.close();
