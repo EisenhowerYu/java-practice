@@ -1,16 +1,14 @@
+// Creating classes out of csv data
+
 import java.util.Scanner;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        Scanner input = new Scanner(System.in);
+        ArrayList<People> peopleDB = new ArrayList<People>();
 
-        System.out.println("What is the name of the guest?");
-        String guest = input.nextLine();
-        input.close();
-
-        boolean invited = false;
         // try-with-resources construction: automatic garbage collection by java
         try(Scanner fname = new Scanner(Paths.get("src\\guestlist.txt"))) {
             while(fname.hasNextLine()) {
@@ -21,22 +19,20 @@ public class App {
                 }
 
                 String split[] = row.split(",");
-                String vip = split[0];
+                String name = split[0];
                 int age = Integer.valueOf(split[1]);
-                
-                if(guest.equals(vip) && age >= 20) {
-                    System.out.println("Guest is invited.");
-                    invited = true;
-                    break;
-                }
-            }
+                String job = split[2];
 
-            if (!invited) {
-                System.out.println("Guest is not invited.");
+                peopleDB.add(new People(name, age, job));
             }
 
         } catch (Exception e) {
             System.out.println("Cannot find file.");
+        }
+
+        for(People element:peopleDB) {
+            element.promotion();
+            System.out.println(element);
         }
     }
 }

@@ -1,10 +1,15 @@
-Sarai Snow,23
-Houston Barron,14
-Anya Terry,16
-Armani Rich,17
-Sunny Ho,35
-Morgan Richardson,34
+Sarai Snow,23,alumni
+Houston Barron,14,student
+Anya Terry,16,student
+Armani Rich,17,student
+Sunny Ho,35,professor
+Morgan Richardson,34,professor
 
-Allison Allison,45
-Dennis Hendrix,56
-Zhuri Blanchard,20
+Allison Allison,45,admin
+Dennis Hendrix,56,admin
+Zhuri Blanchard,20,alumni
+
+Abigail Bobby,25,alumni
+Frank Enstein,20,student
+Milly Rocker,16,student
+Bobby Fischer,29,professor
