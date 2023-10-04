@@ -3,5 +3,9 @@ public class App {
         cube cube = new cube(3);
 
         System.out.println(cube.volume());
+
+        pet bob = new pet("Bob");
+
+        System.out.println(bob);
     }
 }
