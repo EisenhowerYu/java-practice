@@ -4,6 +4,10 @@ public class paymentCard {
     private double balance;
     private static int counter;
 
+    public paymentCard(String name) {
+        this(name, 0.0);
+    }
+
     public paymentCard(String name, double startingBalance) {
         counter++;
         this.id = counter;
@@ -11,47 +15,27 @@ public class paymentCard {
         this.balance = startingBalance;
     }
 
-    public int getId() {
-        return this.id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public double getBalance() {
-        return this.balance;
-    }
+    public int getId() {return this.id;}
+    public String getName() {return this.name;}
+    public double getBalance() {return this.balance;}
 
     public String toString() {
         return "Card owner " + this.getName() + " has a balance of: " + this.getBalance();
     }
 
-    public void eat(String menuItem) {
-
-        double deduction = 0;
-        if (menuItem.equals("Cheap")) {
-            deduction = 2.00;
-        } else if (menuItem.equals("Medium")) {
-            deduction = 10.00;
-        } else if (menuItem.equals("Expensive")) {
-            deduction = 20.00;
-        } else {
-            throw new IllegalArgumentException("Invalid transaction");
-        }
-
-        if (this.getBalance() - deduction < 0) {
+    public void topUp(double amt) {
+        if (amt < 0) {
             System.out.println("Invalid transaction");
         } else {
-            this.balance = this.getBalance() - deduction;
+            this.balance = this.getBalance() + amt;
         }
     }
 
-    public void topUp(double amt) {
-        if (amt < 0) {
-            System.out.println("Invalid top up amount.");
+    public void spend(double amt) {
+        if (amt > this.balance) {
+            System.out.println("Invalid transaction");
         } else {
-            this.balance = this.getBalance() + amt;
+            this.balance = this.getBalance() - amt;
         }
     }
 }
