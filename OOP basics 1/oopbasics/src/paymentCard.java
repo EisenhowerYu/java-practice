@@ -19,6 +19,8 @@ public class paymentCard {
     public String getName() {return this.name;}
     public double getBalance() {return this.balance;}
 
+    public void setBalance(double amt) {this.balance = this.getBalance() + amt;}
+
     public String toString() {
         return "Card owner " + this.getName() + " has a balance of: " + this.getBalance();
     }
@@ -26,16 +28,17 @@ public class paymentCard {
     public void topUp(double amt) {
         if (amt < 0) {
             System.out.println("Invalid transaction");
-        } else {
-            this.balance = this.getBalance() + amt;
+            return;
         }
+        this.setBalance(amt);
+        System.out.println("Top up success");
     }
 
     public void spend(double amt) {
-        if (amt > this.balance) {
+        if (amt > this.getBalance()) {
             System.out.println("Invalid transaction");
-        } else {
-            this.balance = this.getBalance() - amt;
+            return;
         }
+        this.setBalance(-amt);
     }
 }

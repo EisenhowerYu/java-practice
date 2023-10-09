@@ -36,15 +36,17 @@ public class App {
         paymentTerminal pos = new paymentTerminal();
 
         // sample transactions
-        transaction(cardDB.get(1), m_meal, pos, 1);
-        transaction(cardDB.get(2), s_meal, pos, 2);
-        transaction(cardDB.get(3), l_meal, pos, 3);
+        transaction(cardDB.get(0), m_meal, pos, 1);
+        cardDB.get(0).topUp(1000.0);
+        transaction(cardDB.get(0), m_meal, pos, 1);
+        transaction(cardDB.get(1), s_meal, pos, 2);
+        transaction(cardDB.get(2), l_meal, pos, 3);
     }
 
     public static void transaction(paymentCard card, product product, paymentTerminal pos, int qty) {
 
         double total = product.getPrice() * qty;
-        if (qty > product.getQty()) {
+        if (qty > product.getQty() || total > card.getBalance()) {
             System.out.println("Invalid transaction.");
             return;
         }
@@ -54,7 +56,7 @@ public class App {
         product.setQty(product.getQty() - qty);
 
         System.out.println(card.getName() + " has purchased " + qty + " of " + product.getId());
-        System.out.println("Total transaction: " + total + ". Remaining balance: " + card.getBalance());
+        System.out.println("Total transaction: " + total + ". Remaining card balance: " + card.getBalance());
         System.out.println("Total stock left: " + product.getQty());
         System.out.println("Total balance in payment terminal: " + pos.getBalance());
     }
