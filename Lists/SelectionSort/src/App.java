@@ -1,26 +1,21 @@
-import java.util.ArrayList;
-
 public class App {
     public static void main(String[] args) throws Exception {
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(3);
-        list.add(2);
-        list.add(6);
-        list.add(4);
-        list.add(1);
-        list.add(8);
-        // selectionSort(list);
-        System.out.println(findMin(list));
-    }
+        int[] arr1 = {3, 2, 9, 1, 8};
 
-    public static int findMin(ArrayList<Integer> list) {
-        int minIdx = 0;
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(minIdx) > list.get(i)) {
-                minIdx = i;
+        int tmp;
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = i; j < arr1.length; j++) {
+                if (arr1[i] > arr1[j]) {
+                    tmp = arr1[i];
+                    arr1[i] = arr1[j];
+                    arr1[j] = tmp;
+                }
             }
         }
-        return list.get(minIdx);
+
+        for (int i: arr1) {
+            System.out.println(i+" ");
+        }
     }
 
     // public static int selectionSort(ArrayList<Integer> list) {
