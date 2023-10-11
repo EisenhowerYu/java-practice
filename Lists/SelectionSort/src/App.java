@@ -8,7 +8,7 @@ public class App {
             System.out.println(i);
         }
         //System.out.println(linearSearch(arr1, 9));
-        System.out.println(binarySearch(arr1, 8));
+        System.out.println(binarySearch(arr1, 9));
     }
 
     public static int[] selectionSort(int[] arr) {
@@ -56,14 +56,22 @@ public class App {
     }
 
     public static int binarySearch(int[] arr, int key) {
-        int mid = arr.length / 2;
-        int len = arr.length + mid;
-        if (key > arr[mid]) {
-            return binarySearch(Arrays.copyOfRange(arr, mid, arr.length), key);
-        } else if (key < arr[mid]) {
-            return binarySearch(Arrays.copyOfRange(arr, 0, mid), key);
-        } else {
-            return len + mid;
+        return binarySearch(arr, key, 0, arr.length - 1);
+    }
+    
+    private static int binarySearch(int[] arr, int key, int low, int high) {
+        if (low <= high) {
+            int mid = low + (high - low) / 2;
+    
+            if (arr[mid] == key) {
+                return mid; // Key found, return it
+            } else if (arr[mid] < key) {
+                return binarySearch(arr, key, mid + 1, high); // Search in the right half
+            } else {
+                return binarySearch(arr, key, low, mid - 1); // Search in the left half
+            }
         }
+    
+        return -1; // Key not found
     }
 }
