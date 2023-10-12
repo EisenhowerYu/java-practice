@@ -41,6 +41,11 @@ public class App {
         transaction(cardDB.get(0), m_meal, pos, 1);
         transaction(cardDB.get(1), s_meal, pos, 2);
         transaction(cardDB.get(2), l_meal, pos, 3);
+
+        paymentCardPlus special = new paymentCardPlus("Evan", 1000.0, 3);
+        System.out.println(special.getId());
+        System.out.println(special.getBalance());
+        System.out.println(special.getPoints());
     }
 
     public static void transaction(paymentCard card, product product, paymentTerminal pos, int qty) {
