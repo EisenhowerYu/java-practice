@@ -1,0 +1,19 @@
+/*
+ * ProductWarehouse class
+ * Contains the name for each product
+ */
+public class ProductWarehouse extends Warehouse{
+    private String productName;
+
+    public ProductWarehouse(String productName, double capacity) {
+        super(capacity);
+        this.productName = productName;
+    }
+
+    public String getName() {return this.productName;}
+    public void setName(String name) {this.productName = name;}
+
+    public String toString() {
+        return this.getName() + ": " + super.toString();
+    }
+}
