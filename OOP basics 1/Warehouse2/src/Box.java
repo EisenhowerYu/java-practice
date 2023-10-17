@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 
-public class Box {
+/*
+ * Box contains packable objects
+ * Since box also contains .weight() method, box can also be a Packable
+ */
+public class Box implements Packable{
     private double capacity;
     private ArrayList<Packable> arr;
 
