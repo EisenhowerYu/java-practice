@@ -20,7 +20,6 @@ public class App {
             .map(s -> Integer.valueOf(s))
             .filter(s -> s > 0)
             .collect(Collectors.toCollection(ArrayList::new));
-        
         positive.stream()
             .forEach(value -> System.out.println(value));
 
@@ -37,5 +36,9 @@ public class App {
         
         System.out.println("Count: " + count);
         System.out.println("Average: " + avg);
+
+        String linebreak = inputs.stream()
+            .reduce("", (prev, word) -> prev + word + "\n");
+        System.out.println(linebreak);
     }
 }
