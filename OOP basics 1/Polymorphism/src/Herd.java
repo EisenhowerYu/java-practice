@@ -26,4 +26,10 @@ public class Herd implements Movable {
             e.move(dx, dy);
         }
     }
+
+    public void print() {
+        arr.stream()
+            .sorted()
+            .forEach(e -> System.out.println(e));
+    }
 }

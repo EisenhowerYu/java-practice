@@ -14,7 +14,21 @@ public class App {
         // herd.addToHerd(new Organism(19, 107));
         // System.out.println(herd);
 
-        NoiseCapable dog = new Dog("Mococo");
-        dog.makeNoise();
+        // NoiseCapable moco = new Dog("Mococo", 0, 0, 150);
+        // NoiseCapable fuwa = new Dog("Fuwawa", 0, 0, 120);
+        // moco.makeNoise();
+        // fuwa.makeNoise();
+
+        Organism moco2 = new Dog("Mococo", 0, 0, 150);
+        Organism fuwa2 = new Dog("Fuwawa", 0, 0, 120);
+        Organism koro2 = new Dog("Korone", 0, 0, 130);
+
+        Herd dogHerd = new Herd();
+        dogHerd.addToHerd(moco2);
+        dogHerd.addToHerd(fuwa2);
+        dogHerd.addToHerd(koro2);
+
+        dogHerd.print();
+
     }
 }

@@ -3,11 +3,11 @@ public class Animal extends Organism {
 
     // spawn at origin
     public Animal(String name) {
-        this(name, 0, 0);
+        this(name, 0, 0, 0);
     }
 
-    public Animal(String name, int x, int y) {
-        super(x, y);
+    public Animal(String name, int x, int y, double wgt) {
+        super(x, y, wgt);
         this.name = name;
     }
 
